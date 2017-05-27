@@ -69,17 +69,11 @@ Channel: %s<br />
 Encryption: <FONT color=%s>%s</FONT><br />
 Last time: %s<br />
 GPS: %s,%s]]></description></Placemark>
-"""
+"""#TODO change styleUrl ONLINE or OFFLINE based on last time saw
 
 KML_FOLDER = """
 <Folder>
 <name>%s: %s APs</name>
-<Style id="%s"><IconStyle><scale>0.5</scale>
-<color></color>#choose color based on last seen
-#TODO create last seen color function
-<Icon>
-<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>#pin logo basic blanc
-</Icon></IconStyle></Style>
 %s
 </Folder>
 """
@@ -276,6 +270,16 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 		target.add("<Document>\r\n")
 		target.add("<name>netxml2kml</name>\r\n")
 		target.add("<open>1</open>")
+		target.add("""<Style id="ONLINE"><IconStyle>""")
+		target.add("""<color>ff00FF00</color>""")
+		target.add("""<Icon>""")
+		target.add("""<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>""")
+		target.add("""</Icon></IconStyle></Style>""")
+		target.add("""<Style id="OFFLINE"><IconStyle>""")
+		target.add("""<color>ff0000ff</color>""")
+		target.add("""<Icon>""")
+		target.add("""<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>""")
+		target.add("""</Icon></IconStyle></Style>""")
 		
 		count={"WPA":0,"WEP":0,"None":0,"Other":0}
 		folders, route = self.output_kml_fill_folders(count)
@@ -291,10 +295,8 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 			target.add(KML_FOLDER %(
 				crypt,
 				count[crypt],
-				crypt,
-				pic,
 				"".join(folders[crypt])
-			))
+				))
 
 			print "%s\t%s" % (crypt,count[crypt])
 		
@@ -327,11 +329,11 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 				encryption=" ".join(encryption)
 			
 			folders[crypt].append(KML_PLACEMARK %(
-				crypt,name,wn.gps['avg-lon'],wn.gps['avg-lat'],
+				"ONLINE",name,wn.gps['avg-lon'],wn.gps['avg-lat'],
 				essid,wn.bssid,wn.manuf,wn.type,
 				wn.channel,colors[crypt],encryption,wn.lasttime,
 				wn.gps['avg-lat'],wn.gps['avg-lon'],
-			))
+			))#TODO change the style to online or offline based on last time sawq
 			count[crypt]+=1
 			sec_first = int(time.mktime(time.strptime(wn.firsttime)))
 			sec_last = int(time.mktime(time.strptime(wn.lasttime)))
