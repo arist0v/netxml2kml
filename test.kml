@@ -2,7 +2,17 @@
 <kml xmlns='http://earth.google.com/kml/2.1'>
 <Document>
 <name>netxml2kml</name>
-<open>1</open><Style id="ONLINE"><IconStyle><color>ff00FF00</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style><Style id="OFFLINE"><IconStyle><color>ff0000ff</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<open>1</open>
+<Style id="ONLINE"><IconStyle>
+<color>ff00FF00</color>
+<Icon>
+<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+</Icon></IconStyle></Style>
+<Style id="OFFLINE"><IconStyle>
+<color>ff0000ff</color>
+<Icon>
+<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+</Icon></IconStyle></Style>
 <Folder>
 <name>WPA: 1 APs</name>
 
