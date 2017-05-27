@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://earth.google.com/kml/2.1'>
+<Document>
+<name>netxml2kml</name>
+<open>1</open><Style id="ONLINE"><IconStyle><color>ff00FF00</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style><Style id="OFFLINE"><IconStyle><color>ff0000ff</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Folder>
+<name>WPA: 1 APs</name>
+
+<Placemark><styleUrl>#ONLINE</styleUrl><name>blablub - 00:24:FE:03:8C:8C</name>
+<Point><coordinates>13.142435,52.239877</coordinates></Point>
+<description><![CDATA[
+SSID: blablub<br />
+MAC: 00:24:FE:03:8C:8C<br />
+Manuf: Unknown<br />
+Type: infrastructure<br />
+Channel: 1<br />
+Encryption: <FONT color=red>WPA+PSK WPA+AES-CCM</FONT><br />
+Last time: Sat Oct 24 09:05:38 2009<br />
+GPS: 52.239877,13.142435]]></description></Placemark>
+
+</Folder>
+
+<Folder>
+<name>WEP: 0 APs</name>
+
+</Folder>
+
+<Folder>
+<name>None: 0 APs</name>
+
+</Folder>
+
+<Folder>
+<name>Other: 0 APs</name>
+
+</Folder>
+<Folder><name>Routes</name><Placemark><Style><LineStyle><color>7f00ff00</color><width>3</width></LineStyle></Style><LineString><coordinates>
+13.142435,52.239877 
+</coordinates></LineString><name>Route 1 (end Sat Oct 24 13:05:38 2009)</name></Placemark>
+</Folder>
+</Document>
+</kml>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE detection-run SYSTEM "http://kismetwireless.net/kismet-3.1.0.dtd">
+
+<detection-run kismet-version="2009.06.R1" start-time="Sat Oct 24 09:05:35 2009">
+
+<card-source uuid="a0c67aa8-c06b-11de-b0f9-bf034515e201">
+ <card-source>wlan0</card-source>
+ <card-name>wlan0</card-name>
+ <card-interface>wlan0mon</card-interface>
+ <card-type>ath5k</card-type>
+ <card-packets>3507</card-packets>
+ <card-hop>true</card-hop>
+ <card-channels>1,5,9,13,44,60,5540,5620,2,6,10,14,48,64,5560,5640,3,7,11,36,52,5500,5580,5660,4,8,12,40,56,5520,5600,5680</card-channels>
+</card-source>
+<card-source uuid="a0df8868-c06b-11de-b0f9-0d04111be301">
+ <card-source>wlan1</card-source>
+ <card-name>wlan1</card-name>
+ <card-interface>wlan1mon</card-interface>
+ <card-type>rtl8187</card-type>
+ <card-packets>16955</card-packets>
+ <card-hop>true</card-hop>
+ <card-channels>1,5,9,13,2,6,10,14,3,7,11,4,8,12</card-channels>
+</card-source>
+  <wireless-network number="1518" type="infrastructure" first-time="Sat Oct 24 09:05:38 2009" last-time="Sat Oct 24 09:05:38 2009">
+    <SSID first-time="Sat Oct 24 09:05:38 2009" last-time="Sat Oct 24 09:05:38 2009">
+        <type>Beacon</type>
+        <max-rate>54.000000</max-rate>
+        <packets>815</packets>
+        <beaconrate>10</beaconrate>
+        <encryption>WPA+PSK</encryption>
+        <encryption>WPA+AES-CCM</encryption>
+        <essid cloaked="false">blablub</essid>
+    </SSID>
+    <BSSID>00:24:FE:03:8C:8C</BSSID>
+    <manuf>Unknown</manuf>
+    <channel>1</channel>
+    <freqmhz>2412 525</freqmhz>
+    <freqmhz>2417 199</freqmhz>
+    <freqmhz>2422 150</freqmhz>
+    <freqmhz>2427 4</freqmhz>
+    <freqmhz>2442 1</freqmhz>
+    <freqmhz>2452 4</freqmhz>
+    <maxseenrate>54000</maxseenrate>
+    <carrier>IEEE 802.11b+</carrier>
+     <packets>
+       <LLC>815</LLC>
+       <data>68</data>
+       <crypt>68</crypt>
+       <total>883</total>
+       <fragments>0</fragments>
+       <retries>0</retries>
+     </packets>
+     <datasize>5361</datasize>
+    <snr-info>
+      <last_signal_dbm>-68</last_signal_dbm>
+      <last_noise_dbm>-87</last_noise_dbm>
+      <last_signal_rssi>0</last_signal_rssi>
+      <last_noise_rssi>0</last_noise_rssi>
+      <min_signal_dbm>-87</min_signal_dbm>
+      <min_noise_dbm>-96</min_noise_dbm>
+      <min_signal_rssi>1024</min_signal_rssi>
+      <min_noise_rssi>1024</min_noise_rssi>
+      <max_signal_dbm>-39</max_signal_dbm>
+      <max_noise_dbm>-85</max_noise_dbm>
+      <max_signal_rssi>0</max_signal_rssi>
+      <max_noise_rssi>0</max_noise_rssi>
+    </snr-info>
+    <gps-info>
+      <min-lat>52.239877</min-lat>
+      <min-lon>13.142435</min-lon>
+      <min-alt>0.000000</min-alt>
+      <min-spd>0.000000</min-spd>
+      <max-lat>52.239877</max-lat>
+      <max-lon>13.142437</max-lon>
+      <max-alt>0.000000</max-alt>
+      <max-spd>0.000000</max-spd>
+      <peak-lat>52.239877</peak-lat>
+      <peak-lon>13.142435</peak-lon>
+      <peak-alt>0.000000</peak-alt>
+      <avg-lat>52.239877</avg-lat>
+      <avg-lon>13.142435</avg-lon>
+      <avg-alt>0.000000</avg-alt>
+    </gps-info>
+    <bsstimestamp>571668582786</bsstimestamp>
+    <cdp-device></cdp-device>
+    <cdp-portid></cdp-portid>
+    <seen-card>
+     <seen-uuid>a0df8868-c06b-11de-b0f9-0d04111be301</seen-uuid>
+     <seen-time>Sat Oct 24 09:16:18 2009</seen-time>
+     <seen-packets>579</seen-packets>
+    </seen-card>
+    <seen-card>
+     <seen-uuid>a0c67aa8-c06b-11de-b0f9-bf034515e201</seen-uuid>
+     <seen-time>Sat Oct 24 09:16:04 2009</seen-time>
+     <seen-packets>304</seen-packets>
+    </seen-card>
+    <wireless-client number="1" type="tods" first-time="Sat Oct 24 09:08:42 2009" last-time="Sat Oct 24 09:08:42 2009">
+      <client-mac>00:19:E0:12:0F:51</client-mac>
+      <client-manuf>Unknown</client-manuf>
+      <channel>0</channel>
+      <freqmhz>2412 5</freqmhz>
+      <maxseenrate>54000</maxseenrate>
+      <carrier>IEEE 802.11b+</carrier>
+       <packets>
+         <LLC>0</LLC>
+         <data>5</data>
+         <crypt>5</crypt>
+         <total>5</total>
+         <fragments>0</fragments>
+         <retries>0</retries>
+       </packets>
+       <datasize>526</datasize>
+      <snr-info>
+        <last_signal_dbm>-67</last_signal_dbm>
+        <last_noise_dbm>-95</last_noise_dbm>
+        <last_signal_rssi>0</last_signal_rssi>
+        <last_noise_rssi>0</last_noise_rssi>
+        <min_signal_dbm>-67</min_signal_dbm>
+        <min_noise_dbm>-95</min_noise_dbm>
+        <min_signal_rssi>1024</min_signal_rssi>
+        <min_noise_rssi>1024</min_noise_rssi>
+        <max_signal_dbm>-51</max_signal_dbm>
+        <max_noise_dbm>-94</max_noise_dbm>
+        <max_signal_rssi>0</max_signal_rssi>
+        <max_noise_rssi>0</max_noise_rssi>
+      </snr-info>
+      <gps-info>
+        <min-lat>52.239877</min-lat>
+        <min-lon>13.142437</min-lon>
+        <min-alt>0.000000</min-alt>
+        <min-spd>0.000000</min-spd>
+        <max-lat>52.239877</max-lat>
+        <max-lon>13.142437</max-lon>
+        <max-alt>0.000000</max-alt>
+        <max-spd>0.000000</max-spd>
+        <peak-lat>0.000000</peak-lat>
+        <peak-lon>0.000000</peak-lon>
+        <peak-alt>0.000000</peak-alt>
+        <avg-lat>52.239877</avg-lat>
+        <avg-lon>13.142437</avg-lon>
+        <avg-alt>0.000000</avg-alt>
+      </gps-info>
+      <seen-card>
+       <seen-uuid>a0df8868-c06b-11de-b0f9-0d04111be301</seen-uuid>
+       <seen-time>Sat Oct 24 09:08:47 2009</seen-time>
+       <seen-packets>1</seen-packets>
+      </seen-card>
+      <seen-card>
+       <seen-uuid>a0c67aa8-c06b-11de-b0f9-bf034515e201</seen-uuid>
+       <seen-time>Sat Oct 24 09:12:11 2009</seen-time>
+       <seen-packets>4</seen-packets>
+      </seen-card>
+    </wireless-client>
+    <wireless-client number="2" type="fromds" first-time="Sat Oct 24 09:05:38 2009" last-time="Sat Oct 24 09:05:38 2009">
+      <client-mac>00:24:FE:03:8C:8C</client-mac>
+      <client-manuf>Unknown</client-manuf>
+      <channel>1</channel>
+      <freqmhz>2412 487</freqmhz>
+      <freqmhz>2417 187</freqmhz>
+      <freqmhz>2422 134</freqmhz>
+      <freqmhz>2427 3</freqmhz>
+      <freqmhz>2442 1</freqmhz>
+      <freqmhz>2452 3</freqmhz>
+      <maxseenrate>1000</maxseenrate>
+       <packets>
+         <LLC>815</LLC>
+         <data>0</data>
+         <crypt>0</crypt>
+         <total>815</total>
+         <fragments>0</fragments>
+         <retries>0</retries>
+       </packets>
+       <datasize>0</datasize>
+      <snr-info>
+        <last_signal_dbm>-68</last_signal_dbm>
+        <last_noise_dbm>-87</last_noise_dbm>
+        <last_signal_rssi>0</last_signal_rssi>
+        <last_noise_rssi>0</last_noise_rssi>
+        <min_signal_dbm>-87</min_signal_dbm>
+        <min_noise_dbm>-96</min_noise_dbm>
+        <min_signal_rssi>1024</min_signal_rssi>
+        <min_noise_rssi>1024</min_noise_rssi>
+        <max_signal_dbm>-39</max_signal_dbm>
+        <max_noise_dbm>-85</max_noise_dbm>
+        <max_signal_rssi>0</max_signal_rssi>
+        <max_noise_rssi>0</max_noise_rssi>
+      </snr-info>
+      <gps-info>
+        <min-lat>52.239877</min-lat>
+        <min-lon>13.142435</min-lon>
+        <min-alt>0.000000</min-alt>
+        <min-spd>0.000000</min-spd>
+        <max-lat>52.239877</max-lat>
+        <max-lon>13.142437</max-lon>
+        <max-alt>0.000000</max-alt>
+        <max-spd>0.000000</max-spd>
+        <peak-lat>52.239877</peak-lat>
+        <peak-lon>13.142435</peak-lon>
+        <peak-alt>0.000000</peak-alt>
+        <avg-lat>52.239877</avg-lat>
+        <avg-lon>13.142435</avg-lon>
+        <avg-alt>0.000000</avg-alt>
+      </gps-info>
+      <seen-card>
+       <seen-uuid>a0df8868-c06b-11de-b0f9-0d04111be301</seen-uuid>
+       <seen-time>Sat Oct 24 09:16:18 2009</seen-time>
+       <seen-packets>534</seen-packets>
+      </seen-card>
+      <seen-card>
+       <seen-uuid>a0c67aa8-c06b-11de-b0f9-bf034515e201</seen-uuid>
+       <seen-time>Sat Oct 24 09:16:04 2009</seen-time>
+       <seen-packets>281</seen-packets>
+      </seen-card>
+    </wireless-client>
+  </wireless-network>
+</detection-run>
