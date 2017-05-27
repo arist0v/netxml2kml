@@ -75,8 +75,10 @@ KML_FOLDER = """
 <Folder>
 <name>%s: %s APs</name>
 <Style id="%s"><IconStyle><scale>0.5</scale>
-<Icon>")
-<href>http://files.salecker.org/netxml2kml/images/%s.gif</href>
+<color></color>#choose color based on last seen
+#TODO create last seen color function
+<Icon>
+<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>#pin logo basic blanc
 </Icon></IconStyle></Style>
 %s
 </Folder>
@@ -305,7 +307,7 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 		
 	def output_kml_fill_folders(self,count):
 		folders={"WPA":[],"WEP":[],"None":[],"Other":[]}
-		colors={"WPA":"red","WEP":"orange","None":"green","Other":"grey"}
+		colors={"WPA":"red","WEP":"orange","None":"green","Other":"grey"}#TODO use function to choose color based on last time seen
 		route = {}
 		for net in self.networks:
 			wn=self.networks[net]
