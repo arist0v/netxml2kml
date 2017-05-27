@@ -1,2 +1,2 @@
 # netxml2kml
-netxml2kml copy
+generate name of pinpoint with ssid - mac
