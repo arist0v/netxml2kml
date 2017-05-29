@@ -13,6 +13,7 @@ import zipfile
 
 import xml.parsers.expat
 import optparse
+from datetime import datetime, timedelta
 
 class WirelessNetwork:
 	def __init__(self,type,firsttime,lasttime):
@@ -56,7 +57,26 @@ class WirelessNetwork:
 		if len(self.gps)==0 and len(new.gps)>0:
 			self.gps=new.gps
 		return True
-			
+	
+	def state(self):
+		"""
+		define state of client based on lasttime
+		"""
+		offlineDelay = timedelta(0,(5 * 60),0)#5 minute(5 * 60 sec)
+		#time delta object, days, second, microsecond
+		pendingDelay = timedelta(0,(1 * 60),0)#1 minute(1 * 60 sec)
+		lasttime = datetime.strptime(self.lasttime, '%a %b %d %H:%M:%S %Y')#convert str into datetime object
+		diffDate = datetime.now() - lasttime#check diff beteween now and last time
+		
+		if diffDate > pendingDelay and diffDate < offlineDelay:#return correct status depending on delay
+			return "PEDNDING"
+		elif diffDate > offlineDelay:
+			return "OFFLINE"
+		else:
+			return "ONLINE"
+
+	#TODO: function to test if AP is monitored or not(in our list of ap/client IP or not
+				
 KML_PLACEMARK="""
 <Placemark><styleUrl>#%s</styleUrl>%s
 <Point><coordinates>%s,%s</coordinates></Point>
@@ -275,11 +295,17 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 		target.add("""<Icon>\r\n""")
 		target.add("""<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>\r\n""")
 		target.add("""</Icon></IconStyle></Style>\r\n""")
+		target.add("""<Style id="PENDING"><IconStyle>\r\n""")
+		target.add("""<color>ff0066ff</color>\r\n""")
+		target.add("""<Icon>\r\n""")
+		target.add("""<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>\r\n""")
+		target.add("""</Icon></IconStyle></Style>\r\n""")
 		target.add("""<Style id="OFFLINE"><IconStyle>\r\n""")
 		target.add("""<color>ff0000ff</color>\r\n""")
 		target.add("""<Icon>\r\n""")
 		target.add("""<href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>\r\n""")
 		target.add("""</Icon></IconStyle></Style>""")
+
 		
 		count={"WPA":0,"WEP":0,"None":0,"Other":0}
 		folders, route = self.output_kml_fill_folders(count)
@@ -300,7 +326,7 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 
 			print "%s\t%s" % (crypt,count[crypt])
 		
-		target.add(self.output_kml_route(route))
+		#target.add(self.output_kml_route(route))
 		target.add("\r\n</Document>\r\n</kml>")
 		target.close()
 		
@@ -309,7 +335,7 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 		
 	def output_kml_fill_folders(self,count):
 		folders={"WPA":[],"WEP":[],"None":[],"Other":[]}
-		colors={"WPA":"red","WEP":"orange","None":"green","Other":"grey"}#TODO use function to choose color based on last time seen
+		colors={"WPA":"red","WEP":"orange","None":"green","Other":"grey"}#TODO delete this line when everything OK
 		route = {}
 		for net in self.networks:
 			wn=self.networks[net]
@@ -329,11 +355,11 @@ python netxml.py --kmz --kml -o today somefile.netxml /mydir"""
 				encryption=" ".join(encryption)
 			
 			folders[crypt].append(KML_PLACEMARK %(
-				"ONLINE",name,wn.gps['avg-lon'],wn.gps['avg-lat'],
+				wn.state(),name,wn.gps['avg-lon'],wn.gps['avg-lat'],
 				essid,wn.bssid,wn.manuf,wn.type,
 				wn.channel,colors[crypt],encryption,wn.lasttime,
 				wn.gps['avg-lat'],wn.gps['avg-lon'],
-			))#TODO change the style to online or offline based on last time sawq
+			))
 			count[crypt]+=1
 			sec_first = int(time.mktime(time.strptime(wn.firsttime)))
 			sec_last = int(time.mktime(time.strptime(wn.lasttime)))
